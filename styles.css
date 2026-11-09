@@ -65,7 +65,10 @@ button { font: inherit; color: inherit; }
 .hs-ring.show { opacity: 1; }
 
 /* neon sign */
-.neon text { font-family: var(--serif); fill: #3b2128; transition: fill .15s; }
+.neon text { font-family: var(--serif); fill: #3b2128; transition: fill .15s, opacity .25s; }
+.neon-open text { opacity: 0; }
+.sign-open .neon-open text { opacity: 1; }
+.sign-open .neon-closed text { opacity: 0; }
 .neon .small { font-family: var(--body); font-weight: 700; }
 .sign-lit .neon-closed text { fill: var(--neon); filter: url(#f-neon); animation: neonOn 1s steps(1, end); }
 .sign-open .neon-closed text { fill: #3b2128; filter: none; animation: none; }
@@ -108,8 +111,8 @@ button { font: inherit; color: inherit; }
 .sign-open .puff.extra { display: inline; }
 @keyframes rise {
   0% { opacity: 0; transform: translateY(18px) scale(.8, .9); }
-  25% { opacity: .5; }
-  70% { opacity: .22; }
+  25% { opacity: .6; }
+  70% { opacity: .26; }
   100% { opacity: 0; transform: translateY(-70px) scale(1.35, 1.1); }
 }
 
@@ -302,8 +305,8 @@ a.is-placeholder { opacity: .55; text-decoration-style: dashed; cursor: not-allo
 .chalk-menu { display: grid; gap: 6px; }
 .chalk-sec h3 { font-family: var(--hand); font-weight: 700; color: #f3d98b; font-size: 24px; text-align: center; margin: .6em 0 .2em; }
 .chalk-sec ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 0; font-size: 19px; }
-.chalk-sec li { padding: 0 10px; }
-.chalk-sec li + li::before { content: "·"; margin-left: -14px; margin-right: 8px; opacity: .6; }
+.chalk-sec li { padding: 0 10px; white-space: nowrap; }
+.chalk-sec li:not(:last-child)::after { content: "·"; margin-left: 10px; margin-right: -10px; opacity: .6; }
 .chalk-foot { text-align: center; opacity: .7; margin-top: 1.6em !important; font-size: 16px; }
 
 /* receipt style (contact) */
@@ -351,8 +354,8 @@ a.is-placeholder { opacity: .55; text-decoration-style: dashed; cursor: not-allo
 /* ---------- Mobile / narrow ---------- */
 @media (max-width: 900px) {
   .scene-wrap { display: flex; flex-direction: column; }
-  .ticket-wrap { position: relative; top: auto; left: auto; width: auto; max-width: 400px; margin: 26px 18px 18px; transform: rotate(-1deg); }
-  .ticket { font-size: 13.5px; }
+  .ticket-wrap { position: relative; top: auto; left: auto; width: auto; max-width: 360px; margin: 22px 20px 14px; transform: rotate(-1deg); }
+  .ticket { font-size: 12.5px; padding: 16px 16px 22px; }
   .controls { position: absolute; top: auto; bottom: 14px; right: 14px; z-index: 4; }
   .scene {
     height: 66vh; height: 66svh; min-height: 380px; max-height: 620px;

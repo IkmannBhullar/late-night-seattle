@@ -276,7 +276,7 @@ const CONFIG = {
   /* ---------- mobile: start the pan on the counter ---------- */
   function centerScene() {
     const s = $("#scene");
-    if (s.scrollWidth > s.clientWidth) s.scrollLeft = (s.scrollWidth - s.clientWidth) * 0.62;
+    if (s.scrollWidth > s.clientWidth) s.scrollLeft = (s.scrollWidth - s.clientWidth) * 0.5;
   }
 
   /* ---------- go ---------- */
