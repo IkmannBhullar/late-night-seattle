@@ -23,7 +23,7 @@
     <!-- Intro: an index card taped to the wall -->
     <div class="ticket-wrap">
       <div class="ticket">
-        <p class="t-row"><span>NOTE #001 —</span><span>11:47 PM</span></p>
+        <p class="t-row"><span>NOTE #001 —</span><span id="seattle-time" title="Current time in Seattle">11:47 PM</span></p>
         <h1>Ikmann Singh Bhullar</h1>
         <hr class="dash">
         <ul class="t-items">
@@ -72,6 +72,9 @@
           </linearGradient>
           <linearGradient id="g-cone" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0" stop-color="#F2B45A" stop-opacity=".22"/><stop offset="1" stop-color="#F2B45A" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="g-sweep" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#E9E4DA" stop-opacity="0"/><stop offset=".5" stop-color="#fff4d6" stop-opacity="1"/><stop offset="1" stop-color="#E9E4DA" stop-opacity="0"/>
           </linearGradient>
           <radialGradient id="g-lamp">
             <stop offset="0" stop-color="#F2B45A" stop-opacity=".42"/><stop offset=".45" stop-color="#F2B45A" stop-opacity=".12"/><stop offset="1" stop-color="#F2B45A" stop-opacity="0"/>
@@ -238,6 +241,10 @@
             <path d="M870 386h20l-4-10h-12z" fill="#0c1820"/>
             <ellipse cx="880" cy="392" rx="34" ry="26" fill="#F2B45A" opacity=".28" filter="url(#f-blur8)"/>
             <circle cx="880" cy="388" r="3" fill="#F2B45A"/>
+            <g class="car">
+              <ellipse cx="0" cy="520" rx="46" ry="11" fill="#F2B45A" opacity=".35" filter="url(#f-blur8)"/>
+              <circle cx="-9" cy="521" r="2.6" fill="#fff4d6"/><circle cx="9" cy="521" r="2.6" fill="#fff4d6"/>
+            </g>
             <g id="rain-window" class="rain"></g>
             <path d="M560 100H640L470 530H390Z" fill="#fff" opacity=".025"/>
             <path d="M700 100H726L556 530H530Z" fill="#fff" opacity=".02"/>
@@ -438,6 +445,14 @@
           </g>
         </g>
 
+        <!-- desk clock (live Seattle time) -->
+        <g id="deskclock" pointer-events="none">
+          <rect x="854" y="558" width="68" height="36" rx="6" fill="#1b1410"/>
+          <rect x="859" y="563" width="58" height="23" rx="3" fill="#0b0806"/>
+          <text x="888" y="580" text-anchor="middle" font-family="Courier Prime, monospace" font-weight="700" font-size="16" fill="#F2B45A"><tspan id="dc-h">11</tspan><tspan class="colon">:</tspan><tspan id="dc-m">47</tspan></text>
+          <rect x="860" y="590" width="9" height="4" fill="#1b1410"/><rect x="907" y="590" width="9" height="4" fill="#1b1410"/>
+        </g>
+
         <!-- ============ LETTERS -> CONTACT ============ -->
         <g class="hotspot" id="hs-letters" data-panel="contact" data-label="contact" role="button" tabindex="0" aria-label="Letters and a postcard in a desk holder: Contact">
           <rect class="hit" x="1158" y="494" width="84" height="104" fill="transparent"/>
@@ -534,6 +549,7 @@
         <!-- ============ LIGHTING / FX ============ -->
         <g id="fx" pointer-events="none">
           <path class="lamp-cone" d="M805 476 853 448 1160 596H730Z" fill="url(#g-cone)"/>
+          <path class="sweep" d="M0-20H150L70 640H-130Z" fill="url(#g-sweep)"/>
           <rect id="warmth" x="-800" y="-400" width="3200" height="1700" fill="url(#g-warm)"/>
           <rect id="vignette" x="-800" y="-400" width="3200" height="1700" fill="url(#g-vignette)"/>
           <rect id="lights-off" x="-800" y="-400" width="3200" height="1700" fill="#04070a"/>

@@ -102,6 +102,24 @@ button { font: inherit; color: inherit; }
 .flame { animation: flicker 1.8s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: 50% 100%; }
 @keyframes flicker { from { transform: scaleY(.85); opacity: .75 } to { transform: scaleY(1.1); opacity: 1 } }
 
+/* passing car + headlight sweep (every ~22s) */
+.car, .sweep { opacity: 0; }
+.rain-on .car { animation: carPass 22s linear 4s infinite; }
+.rain-on .sweep { animation: sweepPass 22s linear 4s infinite; mix-blend-mode: screen; }
+@keyframes carPass {
+  0% { transform: translateX(350px); opacity: 0; }
+  2% { opacity: 1; }
+  14% { transform: translateX(970px); opacity: 1; }
+  15%, 100% { transform: translateX(970px); opacity: 0; }
+}
+@keyframes sweepPass {
+  0% { transform: translateX(1750px); opacity: 0; }
+  3% { opacity: .07; }
+  13% { opacity: .07; }
+  15%, 100% { transform: translateX(-350px); opacity: 0; }
+}
+.colon { animation: blink 2s steps(1) infinite; }
+
 /* steam */
 .puff { stroke-width: 9; opacity: 0; transform-box: fill-box; transform-origin: 50% 100%; }
 .puff.small { stroke-width: 5; }
@@ -465,5 +483,6 @@ a.is-placeholder { opacity: .55; text-decoration-style: dashed; cursor: not-allo
   .puff, .steam-on .puff { animation: none !important; opacity: .18; }
   .puff.extra { display: none !important; }
   .sign-open .puff { opacity: .3; }
-  .beacon, .flame { animation: none !important; }
+  .beacon, .flame, .colon { animation: none !important; }
+  .car, .sweep { display: none; }
 }

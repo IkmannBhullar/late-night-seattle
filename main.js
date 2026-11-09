@@ -264,6 +264,20 @@ const CONFIG = {
     grid.addEventListener("animationend", () => grid.classList.toggle("shaking", false));
   }
 
+  /* ---------- live Seattle time on the card and the desk clock ---------- */
+  function startClock() {
+    const fmt = new Intl.DateTimeFormat("en-US", { timeZone: "America/Los_Angeles", hour: "numeric", minute: "2-digit" });
+    const card = $("#seattle-time"), h = $("#dc-h"), m = $("#dc-m");
+    const tick = () => {
+      const parts = Object.fromEntries(fmt.formatToParts(new Date()).map((x) => [x.type, x.value]));
+      if (card) card.textContent = `${parts.hour}:${parts.minute} ${parts.dayPeriod || ""}`.trim();
+      if (h) h.textContent = parts.hour.padStart(2, "0");
+      if (m) m.textContent = parts.minute;
+    };
+    tick();
+    setInterval(tick, 15000);
+  }
+
   /* ---------- copy email ---------- */
   function setupCopy() {
     const btn = $("#copy-email"), status = $(".copy-status");
@@ -300,6 +314,7 @@ const CONFIG = {
   setupRain();
   setupCopy();
   setupBoard();
+  startClock();
   centerScene();
   boot();
   // label/ring placement depends on text metrics, so wait for fonts
