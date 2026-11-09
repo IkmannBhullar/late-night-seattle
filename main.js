@@ -323,7 +323,7 @@ const CONFIG = {
     const tick = () => {
       const parts = Object.fromEntries(fmt.formatToParts(new Date()).map((x) => [x.type, x.value]));
       if (card) card.textContent = `${parts.hour}:${parts.minute} ${parts.dayPeriod || ""}`.trim();
-      if (h) h.textContent = parts.hour.padStart(2, "0");
+      if (h) h.textContent = parts.hour;
       if (m) m.textContent = parts.minute;
     };
     tick();

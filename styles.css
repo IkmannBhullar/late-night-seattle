@@ -458,6 +458,7 @@ a.is-placeholder { opacity: .55; text-decoration-style: dashed; cursor: not-allo
     text-shadow: 0 1px 6px #000;
   }
   .menu-list { columns: 1; }
+  .facts div { grid-template-columns: 1fr; gap: 2px; }
 
   /* bottom sheet */
   .panel {
