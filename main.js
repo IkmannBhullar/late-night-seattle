@@ -6,7 +6,7 @@ const CONFIG = {
   email: "Ikmannb12@gmail.com",
   linkedin: "https://www.linkedin.com/in/ikmannbhullar/",
   github: "https://github.com/IkmannBhullar",
-  resume: "[RESUME_LINK]",
+  resume: "Ikmann_Bhullar_Resume.pdf",
   projects: {
     clinicrecall: { demo: "https://clinicrecall-2-web.vercel.app", code: "https://github.com/IkmannBhullar/clinicrecall-2" },
     permitflow:   { demo: "[LINK]", code: "[LINK]" },
@@ -40,7 +40,7 @@ const CONFIG = {
       }
       if (key === "email") v = `mailto:${v}`;
       a.setAttribute("href", v);
-      if (/^https?:/.test(v)) {
+      if (/^https?:/.test(v) || /\.pdf$/i.test(v)) {
         a.setAttribute("target", "_blank");
         a.setAttribute("rel", "noopener noreferrer");
       }
