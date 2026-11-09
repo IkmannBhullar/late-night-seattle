@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ikmann Singh Bhullar — after hours at the chai counter</title>
+  <meta name="description" content="Ikmann Singh Bhullar: software engineer in Seattle (backend, full-stack, cloud) and small-business owner. Explore the café after closing time.">
+  <meta name="theme-color" content="#14202B">
+  <meta property="og:title" content="Ikmann Singh Bhullar — after hours at the chai counter">
+  <meta property="og:description" content="Software engineer in Seattle, backend & full-stack. Small-business owner. Pull up a chair.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314202B'/%3E%3Cpath d='M16 26h28l-3 24H19z' fill='%23C08552'/%3E%3Cpath d='M44 30h4a5 5 0 0 1 0 10h-5' fill='none' stroke='%23C08552' stroke-width='4'/%3E%3Cpath d='M26 20c-3-4 3-6 0-10M34 20c-3-4 3-6 0-10' stroke='%23F2B45A' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Courier+Prime:wght@400;700&family=Kalam:wght@400;700&family=Young+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <noscript><style>.panel-root{position:static;visibility:visible}.panel-root .backdrop,.panel-close{display:none}.panel{position:static;transform:none;width:auto;height:auto;-webkit-mask:none;mask:none}.sheet[hidden]{display:block}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#menu">Skip to the plain-text menu</a>
+
+<div id="app">
+  <header class="scene-wrap">
+    <!-- Intro: an order ticket taped to the door -->
+    <div class="ticket-wrap">
+      <div class="ticket">
+        <p class="t-row"><span>ORDER #001 —</span><span>11:47 PM</span></p>
+        <h1>Ikmann Singh Bhullar</h1>
+        <hr class="dash">
+        <ul class="t-items">
+          <li><span>1x</span><span>software engineer, backend &amp; full-stack</span></li>
+          <li><span>1x</span><span>small-business owner</span></li>
+        </ul>
+        <p class="t-loc">Seattle, WA</p>
+        <hr class="dash">
+        <p class="t-foot">Pull up a chair. Everything in here is clickable.</p>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="rain-toggle" class="quiet-btn" type="button" aria-pressed="true">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 9a5 5 0 0 1 10 0z" fill="currentColor"/><path d="M8 9v4a1.5 1.5 0 0 0 3 0" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+        rain <span class="state">on</span>
+      </button>
+    </div>
+
+    <div class="scene" id="scene">
+      <svg id="scene-svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet" role="group" aria-labelledby="scene-title scene-desc">
+        <title id="scene-title">The chai café after closing time</title>
+        <desc id="scene-desc">An illustrated café on a rainy Seattle night. The chairs are up, chai is steaming on the stove, and a laptop is open on the counter. Each object opens a section of Ikmann's story.</desc>
+        <defs>
+          <linearGradient id="g-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#1E3346"/><stop offset="1" stop-color="#2B4A63"/>
+          </linearGradient>
+          <linearGradient id="g-wall" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#151f28"/><stop offset=".7" stop-color="#1c2731"/><stop offset="1" stop-color="#202a32"/>
+          </linearGradient>
+          <linearGradient id="g-ctop" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#7f5a3c"/><stop offset="1" stop-color="#553a27"/>
+          </linearGradient>
+          <linearGradient id="g-steel" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#5f5a52"/><stop offset=".3" stop-color="#cfc8bb"/><stop offset=".55" stop-color="#9d968a"/><stop offset="1" stop-color="#4f4a43"/>
+          </linearGradient>
+          <linearGradient id="g-lid" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#4c555e"/><stop offset="1" stop-color="#2a3036"/>
+          </linearGradient>
+          <linearGradient id="g-brass" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#6e5130"/><stop offset=".35" stop-color="#b8925a"/><stop offset="1" stop-color="#5e4428"/>
+          </linearGradient>
+          <linearGradient id="g-fog" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#E9E4DA" stop-opacity="0"/><stop offset="1" stop-color="#E9E4DA" stop-opacity=".09"/>
+          </linearGradient>
+          <linearGradient id="g-cone" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#F2B45A" stop-opacity=".22"/><stop offset="1" stop-color="#F2B45A" stop-opacity="0"/>
+          </linearGradient>
+          <radialGradient id="g-lamp">
+            <stop offset="0" stop-color="#F2B45A" stop-opacity=".42"/><stop offset=".45" stop-color="#F2B45A" stop-opacity=".12"/><stop offset="1" stop-color="#F2B45A" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="g-stove">
+            <stop offset="0" stop-color="#F2B45A" stop-opacity=".35"/><stop offset="1" stop-color="#F2B45A" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="g-screen">
+            <stop offset="0" stop-color="#9fc4de" stop-opacity=".45"/><stop offset="1" stop-color="#9fc4de" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="g-warm" gradientUnits="userSpaceOnUse" cx="1080" cy="560" r="760">
+            <stop offset="0" stop-color="#F2B45A" stop-opacity=".22"/><stop offset="1" stop-color="#F2B45A" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="g-vignette" gradientUnits="userSpaceOnUse" cx="860" cy="470" r="1050">
+            <stop offset=".5" stop-color="#05090d" stop-opacity="0"/><stop offset="1" stop-color="#05090d" stop-opacity=".8"/>
+          </radialGradient>
+          <pattern id="p-boards" width="72" height="20" patternUnits="userSpaceOnUse">
+            <rect width="72" height="20" fill="none"/><path d="M0 0V20" stroke="#000" stroke-opacity=".18" stroke-width="2"/>
+          </pattern>
+          <filter id="f-glow" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+            <feMorphology in="SourceAlpha" operator="dilate" radius="2" result="d"/>
+            <feGaussianBlur in="d" stdDeviation="7" result="b"/>
+            <feFlood flood-color="#F2B45A" flood-opacity=".95"/>
+            <feComposite in2="b" operator="in" result="g"/>
+            <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="f-neon" x="-30%" y="-60%" width="160%" height="220%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b1"/>
+            <feGaussianBlur in="SourceGraphic" stdDeviation="11" result="b2"/>
+            <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="f-blur8" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8"/></filter>
+          <filter id="f-steam" x="-60%" y="-30%" width="220%" height="160%"><feGaussianBlur stdDeviation="5"/></filter>
+          <clipPath id="clip-window"><rect x="400" y="100" width="520" height="430"/></clipPath>
+          <clipPath id="clip-door"><rect x="100" y="190" width="180" height="230" rx="4"/></clipPath>
+          <symbol id="sym-tree" viewBox="0 0 40 100">
+            <path d="M20 0 30 22H25L36 46H29L40 74H23V100H17V74H0L11 46H4L15 22H10Z"/>
+          </symbol>
+        </defs>
+
+        <!-- ============ ROOM ============ -->
+        <rect x="-800" y="-400" width="3200" height="1040" fill="url(#g-wall)"/>
+        <rect x="-800" y="-400" width="3200" height="1040" fill="url(#p-boards)" opacity=".5"/>
+        <ellipse class="lampglow" cx="990" cy="400" rx="620" ry="380" fill="url(#g-lamp)"/>
+        <ellipse class="stoveglow" cx="1350" cy="560" rx="260" ry="170" fill="url(#g-stove)"/>
+        <!-- ceiling -->
+        <rect x="-800" y="-400" width="3200" height="414" fill="#0d151b"/>
+        <rect x="-800" y="10" width="3200" height="8" fill="#2a1f17"/>
+        <!-- wainscot + floor -->
+        <rect x="-800" y="560" width="3200" height="80" fill="#2a1f17"/>
+        <rect x="-800" y="560" width="3200" height="80" fill="url(#p-boards)"/>
+        <rect x="-800" y="554" width="3200" height="8" fill="#3d2d21"/>
+        <rect x="-800" y="640" width="3200" height="660" fill="#1c140e"/>
+        <g stroke="#2a1e15" stroke-width="2">
+          <path d="M-800 664H2400M-800 698H2400M-800 744H2400M-800 802H2400M-800 872H2400"/>
+        </g>
+        <rect x="-800" y="634" width="3200" height="10" fill="#2e2219"/>
+
+        <!-- string lights (bulbs added by JS) -->
+        <g id="string-lights">
+          <path d="M-60 20Q170 64 400 22T860 22T1320 22T1780 22" fill="none" stroke="#0a0f13" stroke-width="2"/>
+        </g>
+
+        <!-- ============ FRONT DOOR (decor) ============ -->
+        <g id="door">
+          <rect x="62" y="152" width="256" height="490" fill="#241a13"/>
+          <rect x="76" y="166" width="228" height="476" fill="#35271d"/>
+          <rect x="100" y="190" width="180" height="230" rx="4" fill="url(#g-sky)"/>
+          <g clip-path="url(#clip-door)">
+            <rect x="100" y="330" width="180" height="90" fill="#13253a"/>
+            <use href="#sym-tree" x="112" y="330" width="36" height="90" fill="#1d2f27"/>
+            <use href="#sym-tree" x="226" y="318" width="40" height="102" fill="#1a2a23"/>
+            <g id="rain-door" class="rain"></g>
+            <rect x="100" y="360" width="180" height="60" fill="url(#g-fog)"/>
+          </g>
+          <rect x="100" y="190" width="180" height="230" rx="4" fill="none" stroke="#1b130e" stroke-width="5"/>
+          <rect x="100" y="450" width="180" height="160" rx="4" fill="none" stroke="#2a1e16" stroke-width="5"/>
+          <rect x="280" y="416" width="9" height="48" rx="4.5" fill="#b8925a"/>
+          <path d="M184 170h12M190 170v8" stroke="#6e5130" stroke-width="2"/>
+          <path d="M180 192q10-18 20 0z" fill="#b8925a"/>
+        </g>
+
+        <!-- ============ FRONT WINDOW -> NOW ============ -->
+        <g class="hotspot" id="hs-window" data-panel="now" data-label="now: what I'm building" role="button" tabindex="0" aria-label="Front window: Now, what I'm building right now">
+          <rect class="hit" x="372" y="80" width="580" height="484" fill="transparent"/>
+          <g class="art">
+            <rect x="380" y="80" width="560" height="470" rx="4" fill="#2b2119"/>
+          </g>
+          <g clip-path="url(#clip-window)">
+            <rect x="400" y="100" width="520" height="430" fill="url(#g-sky)"/>
+            <ellipse cx="660" cy="560" rx="340" ry="130" fill="#F2B45A" opacity=".09" filter="url(#f-blur8)"/>
+            <!-- Rainier -->
+            <path d="M400 470 520 398Q560 372 600 396L730 470Z" fill="#2f4c64" opacity=".6"/>
+            <path d="M520 398Q560 372 600 396L586 402 572 394 557 405 541 396Z" fill="#9db4c7" opacity=".3"/>
+            <!-- back skyline -->
+            <g fill="#1a2f43">
+              <rect x="408" y="420" width="40" height="110"/><rect x="452" y="392" width="34" height="138"/>
+              <rect x="490" y="440" width="30" height="90"/><rect x="524" y="404" width="46" height="126"/>
+              <rect x="574" y="430" width="36" height="100"/><rect x="614" y="378" width="40" height="152"/>
+              <rect x="658" y="412" width="30" height="118"/><rect x="692" y="436" width="42" height="94"/>
+              <rect x="842" y="398" width="44" height="132"/><rect x="890" y="428" width="32" height="102"/>
+            </g>
+            <!-- Space Needle -->
+            <g fill="#0e1b27">
+              <path d="M772 530 787 392 780 272H800L793 392 808 530Z"/>
+              <rect x="779" y="334" width="22" height="4"/>
+              <path d="M742 268Q790 246 838 268L826 279Q790 288 754 279Z"/>
+              <path d="M766 254Q790 236 814 254Z"/>
+              <rect x="788.5" y="196" width="3" height="46"/>
+            </g>
+            <circle class="beacon" cx="790" cy="196" r="3" fill="#F2B45A"/>
+            <!-- front skyline -->
+            <g fill="#132436" class="blds">
+              <rect class="bld" x="400" y="466" width="62" height="64"/><rect class="bld" x="470" y="450" width="52" height="80"/>
+              <rect class="bld" x="606" y="470" width="72" height="60"/><rect class="bld" x="846" y="454" width="74" height="76"/>
+            </g>
+            <g fill="#1f3128">
+              <use href="#sym-tree" x="520" y="456" width="30" height="76"/>
+              <use href="#sym-tree" x="548" y="440" width="36" height="92"/>
+              <use href="#sym-tree" x="690" y="448" width="34" height="84"/>
+              <use href="#sym-tree" x="726" y="462" width="28" height="70"/>
+              <use href="#sym-tree" x="812" y="452" width="32" height="80"/>
+            </g>
+            <g fill="#6E8B6A" opacity=".22">
+              <use href="#sym-tree" x="548" y="440" width="36" height="92"/>
+              <use href="#sym-tree" x="812" y="452" width="32" height="80"/>
+            </g>
+            <!-- street lamp -->
+            <rect x="878" y="384" width="4" height="146" fill="#0c1820"/>
+            <path d="M870 386h20l-4-10h-12z" fill="#0c1820"/>
+            <ellipse cx="880" cy="392" rx="34" ry="26" fill="#F2B45A" opacity=".28" filter="url(#f-blur8)"/>
+            <circle cx="880" cy="388" r="3" fill="#F2B45A"/>
+            <g id="rain-window" class="rain"></g>
+            <path d="M560 100H640L470 530H390Z" fill="#fff" opacity=".025"/>
+            <path d="M700 100H726L556 530H530Z" fill="#fff" opacity=".02"/>
+            <rect x="400" y="440" width="520" height="90" fill="url(#g-fog)"/>
+            <g id="drops-window" class="drops"></g>
+            <text x="660" y="508" transform="translate(1320 0) scale(-1 1)" text-anchor="middle" font-family="Young Serif, serif" font-size="40" letter-spacing="14" fill="#F2B45A" opacity=".2">CHAI</text>
+          </g>
+          <g class="art">
+            <rect x="400" y="100" width="520" height="430" fill="none" stroke="#17110c" stroke-width="5"/>
+            <rect x="368" y="540" width="584" height="18" rx="3" fill="#3f2e22"/>
+            <rect x="368" y="540" width="584" height="3" fill="#5e4632"/>
+            <!-- plant on the sill -->
+            <path d="M408 540l4-30h30l4 30z" fill="#a5653a"/>
+            <g fill="#6E8B6A">
+              <ellipse cx="418" cy="498" rx="7" ry="18" transform="rotate(-30 418 498)"/>
+              <ellipse cx="428" cy="490" rx="7" ry="20"/>
+              <ellipse cx="440" cy="497" rx="7" ry="18" transform="rotate(28 440 497)"/>
+              <ellipse cx="450" cy="510" rx="6" ry="14" transform="rotate(60 450 510)"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- ============ NEON SIGN (signature) ============ -->
+        <g class="hotspot" id="hs-sign" role="button" tabindex="0" aria-pressed="false" aria-label="Neon sign: currently Closed. Flip it to Open to work." data-label="flip the sign" data-label-pos="below">
+          <rect class="hit" x="428" y="100" width="264" height="144" fill="transparent"/>
+          <g class="art">
+            <path d="M452 100V138M668 100V138" stroke="#4a4a4a" stroke-width="2" stroke-dasharray="4 3"/>
+            <rect x="432" y="136" width="256" height="104" rx="12" fill="#120d10" stroke="#2c1d22" stroke-width="3"/>
+          </g>
+          <g class="neon neon-closed"><text x="560" y="206" text-anchor="middle" font-size="46" letter-spacing="4">CLOSED</text></g>
+          <g class="neon neon-open">
+            <text x="560" y="188" text-anchor="middle" font-size="42" letter-spacing="6">OPEN</text>
+            <text x="560" y="224" text-anchor="middle" font-size="19" letter-spacing="8" class="small">TO WORK</text>
+          </g>
+        </g>
+
+        <!-- ============ CHALKBOARD -> SKILLS ============ -->
+        <g class="hotspot" id="hs-board" data-panel="skills" data-label="the menu: skills" role="button" tabindex="0" aria-label="Chalkboard café menu: Skills">
+          <g class="art">
+            <rect x="1040" y="62" width="300" height="380" rx="6" fill="#4a3424"/>
+            <rect x="1054" y="76" width="272" height="352" rx="2" fill="#1d2824"/>
+            <ellipse cx="1130" cy="300" rx="80" ry="32" fill="#E9E4DA" opacity=".035"/>
+            <ellipse cx="1250" cy="160" rx="64" ry="26" fill="#E9E4DA" opacity=".03"/>
+            <g class="chalk-text" font-family="Kalam, cursive" fill="#E9E4DA" text-anchor="middle">
+              <text x="1190" y="116" font-size="30" font-weight="700">Today's Menu</text>
+              <path d="M1112 128Q1190 136 1268 127" stroke="#E9E4DA" stroke-width="2" fill="none" opacity=".55"/>
+              <text x="1190" y="164" font-size="20" fill="#f3d98b">~ Backend ~</text>
+              <text x="1190" y="188" font-size="15" opacity=".85">FastAPI · Node · Spring Boot</text>
+              <text x="1190" y="226" font-size="20" fill="#f3d98b">~ Frontend ~</text>
+              <text x="1190" y="250" font-size="15" opacity=".85">React · Next.js · Angular · Vue</text>
+              <text x="1190" y="288" font-size="20" fill="#f3d98b">~ Cloud ~</text>
+              <text x="1190" y="312" font-size="15" opacity=".85">AWS · Docker · Vercel · Supabase</text>
+              <text x="1190" y="350" font-size="20" fill="#f3d98b">~ Chai ~</text>
+              <text x="1190" y="374" font-size="15" opacity=".85">masala ........ always on</text>
+              <path d="M1176 396h28l-4 22h-20z" fill="none" stroke="#E9E4DA" stroke-width="2" opacity=".7"/>
+              <path d="M1186 390c-4-6 4-8 0-14M1194 390c-4-6 4-8 0-14" stroke="#E9E4DA" stroke-width="1.6" fill="none" opacity=".6"/>
+            </g>
+            <rect x="1046" y="436" width="288" height="9" rx="2" fill="#3a2919"/>
+            <rect x="1250" y="430" width="16" height="6" rx="2" fill="#E9E4DA" opacity=".8"/>
+          </g>
+        </g>
+
+        <!-- ============ CERTIFICATES -> EDUCATION ============ -->
+        <g class="hotspot" id="hs-certs" data-panel="education" data-label="education &amp; certs" role="button" tabindex="0" aria-label="Framed certificates: Education and certifications">
+          <rect class="hit" x="1386" y="96" width="172" height="316" fill="transparent"/>
+          <g class="art">
+            <g transform="rotate(-1.5 1472 160)">
+              <rect x="1392" y="100" width="160" height="120" fill="#7a5a34"/>
+              <rect x="1400" y="108" width="144" height="104" fill="#cfc5ad"/>
+              <rect x="1407" y="115" width="130" height="90" fill="none" stroke="#a37a3e" stroke-width="1.5"/>
+              <path d="M1432 134h80M1420 150h104M1442 162h60M1430 176h84" stroke="#5f4f3b" stroke-width="2" opacity=".6"/>
+              <circle cx="1514" cy="192" r="9" fill="#C08552"/>
+            </g>
+            <rect x="1408" y="242" width="128" height="94" fill="#2a2119"/>
+            <rect x="1416" y="250" width="112" height="78" fill="#d6ccb6"/>
+            <path d="M1432 266h80M1440 280h64M1436 294h72" stroke="#5f4f3b" stroke-width="2" opacity=".55"/>
+            <path d="M1492 308l8 14 4-8 4 8 8-14z" fill="#C08552"/>
+            <g transform="rotate(2 1430 380)">
+              <rect x="1396" y="354" width="66" height="52" fill="#7a5a34"/>
+              <rect x="1402" y="360" width="54" height="40" fill="#cfc5ad"/>
+              <path d="M1410 372h38M1414 382h30" stroke="#5f4f3b" stroke-width="2" opacity=".55"/>
+            </g>
+            <rect x="1480" y="354" width="66" height="52" fill="#2a2119"/>
+            <rect x="1486" y="360" width="54" height="40" fill="#d6ccb6"/>
+            <path d="M1494 372h38M1498 382h30" stroke="#5f4f3b" stroke-width="2" opacity=".55"/>
+          </g>
+        </g>
+
+        <!-- ============ PENDANT LAMP (decor) ============ -->
+        <g id="lamp" pointer-events="none">
+          <line x1="990" y1="-400" x2="990" y2="198" stroke="#070b0e" stroke-width="2"/>
+          <path d="M968 198H1012L1040 252H940Z" fill="#2f4a3a"/>
+          <path d="M968 198H1012" stroke="#6E8B6A" stroke-width="2"/>
+          <ellipse class="lamp-light" cx="990" cy="252" rx="50" ry="6" fill="#F2B45A"/>
+          <circle class="lamp-light" cx="990" cy="256" r="8" fill="#ffe2a8"/>
+        </g>
+
+        <!-- ============ TABLE WITH CHAIRS UP (decor) ============ -->
+        <g id="table" pointer-events="none">
+          <rect x="104" y="700" width="10" height="150" fill="#2c1f16"/>
+          <rect x="296" y="700" width="10" height="150" fill="#2c1f16"/>
+          <rect x="100" y="760" width="210" height="6" fill="#2c1f16"/>
+          <rect x="70" y="688" width="270" height="16" rx="3" fill="#4a3424"/>
+          <!-- chair 1 (upside down) -->
+          <rect x="86" y="676" width="104" height="12" rx="2" fill="#3b2a1e"/>
+          <rect x="94" y="588" width="7" height="90" fill="#3b2a1e"/><rect x="176" y="588" width="7" height="90" fill="#3b2a1e"/>
+          <rect x="94" y="618" width="89" height="4" fill="#3b2a1e"/>
+          <rect x="80" y="686" width="8" height="96" fill="#3b2a1e"/>
+          <rect x="80" y="716" width="6" height="40" fill="#3b2a1e"/>
+          <!-- chair 2 -->
+          <rect x="214" y="676" width="104" height="12" rx="2" fill="#433022"/>
+          <rect x="221" y="588" width="7" height="90" fill="#433022"/><rect x="303" y="588" width="7" height="90" fill="#433022"/>
+          <rect x="221" y="626" width="89" height="4" fill="#433022"/>
+          <rect x="316" y="686" width="8" height="96" fill="#433022"/>
+        </g>
+
+        <!-- ============ DUFFEL + DUMBBELLS -> OFF THE CLOCK ============ -->
+        <g class="hotspot" id="hs-duffel" data-panel="offclock" data-label="off the clock" role="button" tabindex="0" aria-label="Duffel bag with dumbbells and travel stickers: Off the clock">
+          <rect class="hit" x="346" y="722" width="250" height="168" fill="transparent"/>
+          <g class="art">
+            <path d="M420 776Q466 722 512 776" fill="none" stroke="#18241d" stroke-width="9" stroke-linecap="round"/>
+            <rect x="358" y="772" width="220" height="92" rx="46" fill="#2f4a3c"/>
+            <path d="M380 790H556" stroke="#6E8B6A" stroke-width="2" opacity=".6"/>
+            <path d="M400 784H540" stroke="#1a281f" stroke-width="3" stroke-dasharray="3 3"/>
+            <circle cx="372" cy="818" r="18" fill="#263d31"/>
+            <circle cx="564" cy="818" r="18" fill="#263d31"/>
+            <!-- travel stickers -->
+            <g transform="rotate(-8 420 820)"><rect x="398" y="806" width="46" height="26" rx="3" fill="#E9E4DA"/><text x="421" y="824" text-anchor="middle" font-family="Courier Prime, monospace" font-weight="700" font-size="13" fill="#14202B">SEA</text></g>
+            <g transform="rotate(10 476 830)"><circle cx="476" cy="830" r="16" fill="#F2B45A"/><path d="M466 834h20l-6-6v-6l-2-2-2 2v6z" fill="#14202B"/></g>
+            <g transform="rotate(-4 528 818)"><rect x="508" y="804" width="42" height="28" rx="14" fill="#C08552"/><text x="529" y="823" text-anchor="middle" font-family="Courier Prime, monospace" font-weight="700" font-size="12" fill="#14202B">YLW</text></g>
+            <g transform="rotate(6 446 850)"><rect x="430" y="840" width="34" height="18" rx="2" fill="#2B4A63"/><path d="M434 855l7-9 5 5 6-8 9 12z" fill="#E9E4DA" opacity=".8"/></g>
+            <!-- dumbbells -->
+            <rect x="404" y="868" width="94" height="7" rx="3" fill="#7a7a7e"/>
+            <rect x="394" y="852" width="15" height="40" rx="3" fill="#1b1b1e"/><rect x="384" y="858" width="11" height="28" rx="3" fill="#232327"/>
+            <rect x="493" y="852" width="15" height="40" rx="3" fill="#1b1b1e"/><rect x="507" y="858" width="11" height="28" rx="3" fill="#232327"/>
+            <rect x="526" y="878" width="64" height="6" rx="3" fill="#7a7a7e"/>
+            <rect x="520" y="866" width="12" height="30" rx="3" fill="#1b1b1e"/><rect x="584" y="866" width="12" height="30" rx="3" fill="#1b1b1e"/>
+          </g>
+        </g>
+
+        <!-- ============ COUNTER ============ -->
+        <g id="counter" pointer-events="none">
+          <rect x="600" y="612" width="1800" height="700" fill="#32241a"/>
+          <g fill="none" stroke="#261a12" stroke-width="5">
+            <rect x="634" y="644" width="176" height="230" rx="4"/><rect x="838" y="644" width="176" height="230" rx="4"/>
+            <rect x="1042" y="644" width="176" height="230" rx="4"/><rect x="1246" y="644" width="176" height="230" rx="4"/>
+            <rect x="1450" y="644" width="176" height="230" rx="4"/><rect x="1654" y="644" width="176" height="230" rx="4"/>
+          </g>
+          <rect x="600" y="612" width="1800" height="14" fill="#000" opacity=".35"/>
+          <rect x="590" y="594" width="1810" height="20" rx="3" fill="url(#g-ctop)"/>
+          <rect x="590" y="594" width="1810" height="3" fill="#a9825a" opacity=".7"/>
+          <rect x="590" y="612" width="12" height="700" fill="#271b13"/>
+        </g>
+
+        <!-- ============ CASH REGISTER -> EXPERIENCE ============ -->
+        <g class="hotspot" id="hs-register" data-panel="experience" data-label="experience" role="button" tabindex="0" aria-label="Cash register: Experience, the businesses and past jobs">
+          <rect class="hit" x="634" y="424" width="172" height="174" fill="transparent"/>
+          <g class="art">
+            <path d="M676 490C668 470 674 450 662 432L676 428C688 448 684 470 690 490Z" fill="#E9E4DA" opacity=".9"/>
+            <path d="M666 446H680M668 456H682M670 466H684" stroke="#9a9184" stroke-width="1.5"/>
+            <path d="M656 552 668 488H772L784 552Z" fill="url(#g-brass)"/>
+            <rect x="690" y="460" width="60" height="28" rx="3" fill="#1b1410"/>
+            <text x="720" y="480" text-anchor="middle" font-family="Courier Prime, monospace" font-weight="700" font-size="15" fill="#F2B45A">0.00</text>
+            <g fill="#E9E4DA" opacity=".85">
+              <circle cx="690" cy="504" r="4"/><circle cx="706" cy="504" r="4"/><circle cx="722" cy="504" r="4"/><circle cx="738" cy="504" r="4"/><circle cx="754" cy="504" r="4"/>
+              <circle cx="688" cy="520" r="4"/><circle cx="705" cy="520" r="4"/><circle cx="722" cy="520" r="4"/><circle cx="739" cy="520" r="4"/><circle cx="756" cy="520" r="4"/>
+              <circle cx="686" cy="536" r="4"/><circle cx="704" cy="536" r="4"/><circle cx="722" cy="536" r="4"/><circle cx="740" cy="536" r="4"/><circle cx="758" cy="536" r="4"/>
+            </g>
+            <rect x="640" y="550" width="160" height="46" rx="4" fill="#7c5c34"/>
+            <rect x="652" y="562" width="136" height="24" rx="2" fill="none" stroke="#5a4125" stroke-width="2"/>
+            <rect x="712" y="570" width="16" height="6" rx="3" fill="#c9a36a"/>
+            <path d="M784 520h14v-22" fill="none" stroke="#5a4125" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="798" cy="494" r="6" fill="#1b1410"/>
+          </g>
+        </g>
+
+        <!-- ============ ORDER SPIKE -> CONTACT ============ -->
+        <g class="hotspot" id="hs-ticket" data-panel="contact" data-label="contact" role="button" tabindex="0" aria-label="Order ticket on a spike: Contact">
+          <rect class="hit" x="824" y="486" width="76" height="114" fill="transparent"/>
+          <g class="art">
+            <ellipse cx="862" cy="594" rx="28" ry="6" fill="#2e2e31"/>
+            <g transform="rotate(7 862 556)"><rect x="838" y="526" width="48" height="58" fill="#d8d0c0"/></g>
+            <g transform="rotate(-5 862 548)">
+              <rect x="836" y="516" width="52" height="62" fill="#F3EDE1"/>
+              <text x="862" y="534" text-anchor="middle" font-family="Courier Prime, monospace" font-weight="700" font-size="11" fill="#2a2420">#002</text>
+              <path d="M844 544h36M844 553h28M844 562h32" stroke="#6b6157" stroke-width="2"/>
+            </g>
+            <line x1="862" y1="492" x2="862" y2="592" stroke="#a5a5aa" stroke-width="3" stroke-linecap="round"/>
+          </g>
+        </g>
+
+        <!-- ============ LAPTOP -> PROJECTS ============ -->
+        <ellipse class="screen-glow" cx="1040" cy="520" rx="170" ry="110" fill="url(#g-screen)" pointer-events="none"/>
+        <g class="hotspot" id="hs-laptop" data-panel="projects" data-label="projects" role="button" tabindex="0" aria-label="Laptop on the counter: Projects">
+          <rect class="hit" x="928" y="458" width="224" height="140" fill="transparent"/>
+          <g class="art">
+            <path d="M948 590 956 470Q956 466 960 466H1120Q1124 466 1124 470L1132 590Z" fill="url(#g-lid)"/>
+            <path d="M957 467H1123" stroke="#bcd9ee" stroke-width="2" opacity=".55"/>
+            <rect x="932" y="588" width="216" height="8" rx="3" fill="#23282d"/>
+            <g transform="rotate(-10 984 512)">
+              <circle cx="984" cy="512" r="17" fill="#C08552"/>
+              <path d="M976 505h14l-2 13h-10z" fill="#E9E4DA"/>
+              <path d="M990 508q7 0 4 7l-4 1" stroke="#E9E4DA" fill="none" stroke-width="2"/>
+            </g>
+            <g transform="rotate(6 1094 556)">
+              <rect x="1070" y="540" width="48" height="30" rx="4" fill="#6E8B6A"/>
+              <path d="M1073 567l11-14 6 6 7-10 14 18z" fill="#1d2b22"/>
+              <text x="1094" y="552" text-anchor="middle" font-family="Atkinson Hyperlegible, sans-serif" font-weight="700" font-size="9" fill="#14202B">PNW</text>
+            </g>
+            <rect x="970" y="550" width="44" height="22" rx="11" fill="#F2B45A"/>
+            <text x="992" y="566" text-anchor="middle" font-family="Courier Prime, monospace" font-weight="700" font-size="13" fill="#14202B">&lt;/&gt;</text>
+          </g>
+        </g>
+        <!-- GitHub sticker on the lid: a real link -->
+        <a class="hotspot" id="hs-github" data-link="github" data-label="github ↗" aria-label="GitHub profile (opens in a new tab)">
+          <g class="art" transform="rotate(-4 1056 500)">
+            <rect x="1020" y="486" width="72" height="28" rx="7" fill="#E9E4DA"/>
+            <path d="M1029 507v-11l4 3.5a8 8 0 0 1 6 0l4-3.5v11a7 6.5 0 0 1-14 0z" fill="#14202B"/>
+            <text x="1069" y="505" text-anchor="middle" font-family="Atkinson Hyperlegible, sans-serif" font-weight="700" font-size="11.5" fill="#14202B">GitHub</text>
+          </g>
+        </a>
+
+        <!-- ============ CHAI POT + CUP -> ABOUT ============ -->
+        <g class="hotspot" id="hs-chai" data-panel="about" data-label="about me" role="button" tabindex="0" aria-label="Steaming pot of chai and a cup: About me">
+          <rect class="hit" x="1244" y="440" width="300" height="158" fill="transparent"/>
+          <g class="art">
+            <rect x="1250" y="564" width="196" height="30" rx="5" fill="#252529"/>
+            <rect x="1250" y="564" width="196" height="4" fill="#3a3a40"/>
+            <circle cx="1418" cy="580" r="5" fill="#8a8a90"/><circle cx="1434" cy="580" r="5" fill="#8a8a90"/>
+            <g class="flame"><path d="M1298 564q4-11 8 0zM1314 564q4-13 8 0zM1330 564q4-11 8 0zM1346 564q4-13 8 0zM1362 564q4-11 8 0z" fill="#F2B45A"/></g>
+            <rect x="1284" y="556" width="104" height="5" rx="2" fill="#18181b"/>
+            <path d="M1280 472H1392L1386 552Q1336 562 1286 552Z" fill="url(#g-steel)"/>
+            <path d="M1280 486h-12q-4 0-4 4v2q0 4 4 4h12M1392 486h12q4 0 4 4v2q0 4-4 4h-12" fill="none" stroke="#6f695f" stroke-width="4"/>
+            <ellipse cx="1336" cy="472" rx="58" ry="8" fill="#6f695f"/>
+            <ellipse cx="1336" cy="473" rx="52" ry="5.5" fill="#C08552"/>
+            <path d="M1364 474 1410 420" stroke="#9c958a" stroke-width="5" stroke-linecap="round"/>
+            <!-- kulhad cup -->
+            <path d="M1480 558H1530L1522 596H1488Z" fill="#a8623a"/>
+            <ellipse cx="1505" cy="558" rx="25" ry="4.5" fill="#8b4f2e"/>
+            <ellipse cx="1505" cy="558.5" rx="21" ry="3.2" fill="#C08552"/>
+          </g>
+        </g>
+
+        <!-- steam (pointer-events off so it never steals clicks) -->
+        <g id="steam" pointer-events="none" filter="url(#f-steam)" stroke="#E9E4DA" fill="none" stroke-linecap="round">
+          <path class="puff" style="--d:0s" d="M1320 462c-14-24 14-40 0-64c-12-22 12-38 2-60"/>
+          <path class="puff" style="--d:1.6s" d="M1348 462c14-26-12-42 4-66c14-22-8-40 4-62"/>
+          <path class="puff" style="--d:3.2s" d="M1334 462c-8-20 12-34-2-56c-10-20 14-36 0-58"/>
+          <path class="puff extra" style="--d:.8s" d="M1306 462c-16-22 10-46-6-70c-12-24 8-42-2-62"/>
+          <path class="puff extra" style="--d:2.4s" d="M1364 462c16-22-6-46 8-70c12-24-8-42 4-62"/>
+          <path class="puff small" style="--d:.5s" d="M1502 552c-6-12 6-18 0-30c-6-10 4-18 0-26"/>
+          <path class="puff small" style="--d:2.4s" d="M1510 552c6-12-6-18 0-30c6-10-4-18 0-26"/>
+        </g>
+
+        <!-- ============ LIGHTING / FX ============ -->
+        <g id="fx" pointer-events="none">
+          <path class="lamp-cone" d="M946 256H1034L1240 600H740Z" fill="url(#g-cone)"/>
+          <rect id="warmth" x="-800" y="-400" width="3200" height="1700" fill="url(#g-warm)"/>
+          <rect id="vignette" x="-800" y="-400" width="3200" height="1700" fill="url(#g-vignette)"/>
+          <rect id="lights-off" x="-800" y="-400" width="3200" height="1700" fill="#04070a"/>
+        </g>
+        <g id="labels" pointer-events="none" aria-hidden="true"></g>
+      </svg>
+      <p class="swipe-hint" aria-hidden="true">← swipe to look around →</p>
+    </div>
+  </header>
+
+  <main id="menu" class="menu" tabindex="-1">
+    <div class="menu-inner">
+      <h2>The menu, in plain text</h2>
+      <p class="menu-sub">Same story, no scene required.</p>
+      <ol class="menu-list">
+        <li><a href="#projects" data-open="projects"><span class="m-name">Projects</span><span class="m-dots" aria-hidden="true"></span><span class="m-obj">the laptop</span></a></li>
+        <li><a href="#about" data-open="about"><span class="m-name">About me</span><span class="m-dots" aria-hidden="true"></span><span class="m-obj">the chai pot</span></a></li>
+        <li><a href="#experience" data-open="experience"><span class="m-name">Experience</span><span class="m-dots" aria-hidden="true"></span><span class="m-obj">the register</span></a></li>
+        <li><a href="#skills" data-open="skills"><span class="m-name">Skills</span><span class="m-dots" aria-hidden="true"></span><span class="m-obj">the chalkboard</span></a></li>
+        <li><a href="#education" data-open="education"><span class="m-name">Education &amp; certifications</span><span class="m-dots" aria-hidden="true"></span><span class="m-obj">the frames</span></a></li>
+        <li><a href="#now" data-open="now"><span class="m-name">Now</span><span class="m-dots" aria-hidden="true"></span><span class="m-obj">the window</span></a></li>
+        <li><a href="#offclock" data-open="offclock"><span class="m-name">Off the clock</span><span class="m-dots" aria-hidden="true"></span><span class="m-obj">the duffel bag</span></a></li>
+        <li><a href="#contact" data-open="contact"><span class="m-name">Contact</span><span class="m-dots" aria-hidden="true"></span><span class="m-obj">the order spike</span></a></li>
+        <li><a data-link="github"><span class="m-name">GitHub ↗</span><span class="m-dots" aria-hidden="true"></span><span class="m-obj">the sticker</span></a></li>
+        <li><a data-link="resume"><span class="m-name">Résumé ↗</span><span class="m-dots" aria-hidden="true"></span><span class="m-obj">to go</span></a></li>
+      </ol>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>ikmann singh bhullar / software engineer / seattle, wa / built after closing time</p>
+  </footer>
+</div>
+
+<!-- ============ PANELS ============ -->
+<div class="panel-root" id="panel-root">
+  <div class="backdrop" data-close></div>
+  <aside class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="h-projects" data-style="paper">
+    <div class="panel-top">
+      <span class="grab" aria-hidden="true"></span>
+      <button class="panel-close" type="button" data-close aria-label="Close panel">close <span aria-hidden="true">✕</span></button>
+    </div>
+    <div class="panel-body">
+
+      <!-- PROJECTS -->
+      <section class="sheet" id="projects" data-style="paper" hidden>
+        <p class="eyebrow">open on the laptop</p>
+        <h2 id="h-projects" tabindex="-1">Projects</h2>
+
+        <article class="proj featured">
+          <span class="stamp">house special</span>
+          <h3>ClinicRecall</h3>
+          <p>Patient-recall SaaS for medical practices. Import patients by CSV, catch who's overdue, send reminder emails, track visits, and let the next due date recalculate itself.</p>
+          <ul class="notes">
+            <li>Multi-tenant isolation at the repository layer, backed by Postgres row-level security</li>
+            <li>Idempotent reminders, so nobody gets the same email twice</li>
+            <li>576 backend tests, plus a Playwright end-to-end walkthrough</li>
+            <li>Synthetic data only; intentionally labeled <em>not</em> HIPAA compliant</li>
+          </ul>
+          <p class="stack">Python 3.12 · FastAPI · SQLAlchemy · Alembic · Next.js 15 · React 19 · TypeScript · Tailwind v4 · PostgreSQL 17 · Supabase Auth</p>
+          <p class="links"><a data-link="projects.clinicrecall.demo">Live demo ↗</a><a data-link="projects.clinicrecall.code">Code ↗</a></p>
+        </article>
+
+        <article class="proj">
+          <h3>PermitFlow</h3>
+          <p>Permit and compliance manager for contractors, built as my WGU capstone. Projects, permits, inspections, and reports, with role-based access.</p>
+          <p class="aside-note"><strong>PermitFlow 2.0</strong> is in progress: a multi-tenant SaaS rebuild on Next.js, TypeScript, and Supabase.</p>
+          <p class="stack">React · Node/Express · PostgreSQL · Prisma · JWT · Docker · Jest/Supertest · Render</p>
+          <p class="links"><a data-link="projects.permitflow.demo">Live ↗</a><a data-link="projects.permitflow.code">Code ↗</a></p>
+        </article>
+
+        <article class="proj">
+          <h3>Swap Spot</h3>
+          <p>Full-stack marketplace with PayPal checkout, Cloudinary image uploads, and separate admin and customer roles.</p>
+          <p class="stack">React · Redux · Node · MongoDB · JWT · PayPal · Cloudinary · Render</p>
+          <p class="links"><a data-link="projects.swapspot.demo">Live ↗</a><a data-link="projects.swapspot.code">Code ↗</a></p>
+        </article>
+
+        <article class="proj">
+          <h3>LiteMusic</h3>
+          <p>Spotify-inspired music app with live search, audio previews, and light/dark themes.</p>
+          <p class="stack">React · Vite · Tailwind · Framer Motion · Deezer API</p>
+          <p class="links"><a data-link="projects.litemusic.demo">Live ↗</a><a data-link="projects.litemusic.code">Code ↗</a></p>
+        </article>
+
+        <article class="proj">
+          <h3>GreenBite</h3>
+          <p>Recipe app: search by ingredient, save favorites to a cookbook, and export a PDF grocery list. Later rebuilt in React + Tailwind.</p>
+          <p class="stack">Spoonacular API · React · Tailwind</p>
+          <p class="links"><a data-link="projects.greenbite.demo">Live ↗</a><a data-link="projects.greenbite.code">Code ↗</a></p>
+        </article>
+
+        <article class="proj">
+          <h3>KBS Painting website</h3>
+          <p>Responsive site for my painting business, with service info, an interactive gallery, and contact options.</p>
+          <p class="stack">React</p>
+          <p class="links"><a data-link="projects.kbs.site">Live ↗</a><a data-link="projects.kbs.code">Code ↗</a></p>
+        </article>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="sheet" id="about" data-style="paper" hidden>
+        <p class="eyebrow">poured from the chai pot</p>
+        <h2 id="h-about" tabindex="-1">About me</h2>
+        <p class="lede">I'm a software engineer in Seattle focused on backend, full-stack, and cloud.</p>
+        <p>I'm also a business owner: I run KBS Painting Ltd. and own the Chaiwala of London location in Kelowna, BC.</p>
+        <p>Running real businesses shapes how I build software: I care about tools that save people time and that actually get used.</p>
+        <dl class="facts">
+          <div><dt>Based in</dt><dd>Seattle, WA</dd></div>
+          <div><dt>Focus</dt><dd>Backend · full-stack · cloud</dd></div>
+          <div><dt>Also</dt><dd>Owner, KBS Painting Ltd. &amp; Chaiwala of London (Kelowna)</dd></div>
+        </dl>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section class="sheet" id="experience" data-style="paper" hidden>
+        <p class="eyebrow">rung up at the register</p>
+        <h2 id="h-experience" tabindex="-1">Experience</h2>
+        <h3 class="sub">The businesses</h3>
+        <ul class="ledger">
+          <li><div class="l-top"><strong>Owner</strong><span class="l-when">current</span></div><p class="l-org">KBS Painting Ltd.</p><p>I own the business, a residential &amp; commercial painting company.</p></li>
+          <li><div class="l-top"><strong>Owner</strong><span class="l-when">current</span></div><p class="l-org">Chaiwala of London · Kelowna, BC</p><p>I own the Kelowna location of the chai café.</p></li>
+        </ul>
+        <h3 class="sub">Before that</h3>
+        <ul class="ledger">
+          <li><div class="l-top"><strong>Customer Service Specialist (Lead)</strong><span class="l-when">Jun 2021 – May 2022</span></div><p class="l-org">Dick's Sporting Goods</p></li>
+          <li><div class="l-top"><strong>Shift Learning Ambassador</strong><span class="l-when">May 2019 – Mar 2021</span></div><p class="l-org">Amazon Delivery Warehouse</p></li>
+        </ul>
+      </section>
+
+      <!-- SKILLS (chalkboard) -->
+      <section class="sheet" id="skills" data-style="chalk" hidden>
+        <p class="eyebrow">written on the chalkboard</p>
+        <h2 id="h-skills" tabindex="-1">Today's Menu</h2>
+        <p class="chalk-sub">(skills, served fresh)</p>
+        <div class="chalk-menu">
+          <div class="chalk-sec"><h3>~ Languages ~</h3><ul><li>Python</li><li>Java</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li><li>C</li><li>Bash</li></ul></div>
+          <div class="chalk-sec"><h3>~ Backend ~</h3><ul><li>FastAPI</li><li>Node / Express</li><li>Spring Boot</li><li>REST APIs</li><li>PostgreSQL</li><li>MongoDB</li><li>Prisma</li></ul></div>
+          <div class="chalk-sec"><h3>~ Frontend ~</h3><ul><li>React</li><li>Next.js</li><li>Angular</li><li>Vue</li><li>Tailwind</li><li>Redux</li></ul></div>
+          <div class="chalk-sec"><h3>~ Cloud &amp; DevOps ~</h3><ul><li>AWS</li><li>Docker</li><li>GitHub Actions</li><li>Vercel</li><li>Render</li><li>Supabase</li></ul></div>
+          <div class="chalk-sec"><h3>~ Testing ~</h3><ul><li>Jest</li><li>Supertest</li><li>Playwright</li><li>pytest</li></ul></div>
+        </div>
+        <p class="chalk-foot">* every order comes with a side of tests</p>
+      </section>
+
+      <!-- EDUCATION -->
+      <section class="sheet" id="education" data-style="paper" hidden>
+        <p class="eyebrow">framed on the wall</p>
+        <h2 id="h-education" tabindex="-1">Education &amp; certifications</h2>
+        <div class="frames">
+          <div class="frame big"><p class="f-title">B.S. Software Engineering</p><p class="f-org">Western Governors University</p><p class="f-meta">2026 · GPA 3.79</p></div>
+          <div class="frame"><p class="f-title">AAS-T, Computing / Software Development</p><p class="f-org">Lake Washington Technical College</p><p class="f-meta">2023</p></div>
+          <div class="frame"><p class="f-title">Full-stack web development</p><p class="f-org">Flatiron School</p><p class="f-meta">2022</p></div>
+        </div>
+        <h3 class="sub">Certifications</h3>
+        <ul class="certs">
+          <li>AWS Cloud Practitioner</li><li>ITIL</li><li>CompTIA Project+</li><li>Google IT Support</li>
+        </ul>
+      </section>
+
+      <!-- NOW -->
+      <section class="sheet" id="now" data-style="paper" hidden>
+        <p class="eyebrow">through the front window</p>
+        <h2 id="h-now" tabindex="-1">Now</h2>
+        <p class="lede">What I'm building right now:</p>
+        <ul class="now-list">
+          <li>Rebuilding <strong>PermitFlow</strong> as a real multi-tenant SaaS</li>
+          <li>Building <strong>Summit</strong>, a focus app with themed solo sessions and live group rooms</li>
+          <li>Building a quote and job-tracking tool for contractors, with KBS Painting as the first user</li>
+          <li class="seeking">Looking for entry-level backend, full-stack, or cloud engineering roles. <button type="button" class="text-btn" data-flip>Flip the sign →</button></li>
+        </ul>
+      </section>
+
+      <!-- OFF THE CLOCK -->
+      <section class="sheet" id="offclock" data-style="paper" hidden>
+        <p class="eyebrow">packed in the duffel</p>
+        <h2 id="h-offclock" tabindex="-1">Off the clock</h2>
+        <p>When the café's closed and the code is pushed:</p>
+        <ul class="stickers">
+          <li class="s-lift">Weightlifting</li>
+          <li class="s-travel">Traveling</li>
+          <li class="s-cook">Cooking</li>
+          <li class="s-design">Design</li>
+        </ul>
+      </section>
+
+      <!-- CONTACT (order ticket) -->
+      <section class="sheet" id="contact" data-style="receipt" hidden>
+        <div class="receipt">
+          <p class="r-center r-small">— CHAI COUNTER —<br>after hours</p>
+          <p class="r-row"><span>ORDER #002</span><span>for: you</span></p>
+          <hr class="dash">
+          <h2 id="h-contact" tabindex="-1">Contact</h2>
+          <p class="r-ask">Got a role, a project, or just want to talk shop?</p>
+          <hr class="dash">
+          <ul class="r-lines">
+            <li><span class="r-k">EMAIL</span><a data-link="email"><span data-text="email"></span></a></li>
+            <li><span class="r-k">LINKEDIN</span><a data-link="linkedin"><span data-text="linkedin" data-strip></span></a></li>
+            <li><span class="r-k">GITHUB</span><a data-link="github"><span data-text="github" data-strip></span></a></li>
+            <li><span class="r-k">RÉSUMÉ</span><a data-link="resume">download ↗</a></li>
+          </ul>
+          <p class="r-actions"><button type="button" class="copy-btn" id="copy-email">copy email</button><span class="copy-status" role="status" aria-live="polite"></span></p>
+          <hr class="dash">
+          <p class="r-row r-total"><span>TOTAL</span><span>one conversation</span></p>
+          <p class="r-center r-small">THANK YOU · COME AGAIN</p>
+        </div>
+      </section>
+
+    </div>
+  </aside>
+</div>
+
+<!-- note that slides in when the sign flips to OPEN TO WORK -->
+<div class="open-note" id="open-note" role="status" aria-live="polite">
+  <button type="button" class="note-x" aria-label="Dismiss note">✕</button>
+  <p class="note-title">We're open.</p>
+  <p>Looking for entry-level backend, full-stack, or cloud roles.</p>
+  <p class="note-links"><a data-link="resume">Résumé ↗</a><a href="#contact" data-open="contact">Say hi →</a></p>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
