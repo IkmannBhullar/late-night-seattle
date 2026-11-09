@@ -246,6 +246,7 @@ const CONFIG = {
       const off = body.classList.toggle("no-rain");
       btn.setAttribute("aria-pressed", String(!off));
       $(".state", btn).textContent = off ? "off" : "on";
+      document.dispatchEvent(new Event("rainchange"));
     });
   }
 
@@ -262,6 +263,57 @@ const CONFIG = {
       grid.classList.add("shaking");
     });
     grid.addEventListener("animationend", () => grid.classList.toggle("shaking", false));
+  }
+
+  /* ---------- rain sound: generated noise, no audio files, off by default ---------- */
+  function setupSound() {
+    const btn = $("#sound-toggle");
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!btn || !AC) { if (btn) btn.hidden = true; return; }
+    let ctx = null, master = null, wanted = false;
+
+    function noiseBuffer(brown) {
+      const len = ctx.sampleRate * 4, buf = ctx.createBuffer(2, len, ctx.sampleRate);
+      for (let c = 0; c < 2; c++) {
+        const d = buf.getChannelData(c);
+        let last = 0;
+        for (let i = 0; i < len; i++) {
+          const w = Math.random() * 2 - 1;
+          if (brown) { last = (last + 0.02 * w) / 1.02; d[i] = last * 3.5; } else d[i] = w;
+        }
+      }
+      return buf;
+    }
+    function layer(brown, type, freq, level) {
+      const src = ctx.createBufferSource();
+      src.buffer = noiseBuffer(brown); src.loop = true;
+      const f = ctx.createBiquadFilter(); f.type = type; f.frequency.value = freq;
+      const g = ctx.createGain(); g.gain.value = level;
+      src.connect(f).connect(g).connect(master);
+      src.start();
+    }
+    function build() {
+      ctx = new AC();
+      master = ctx.createGain(); master.gain.value = 0; master.connect(ctx.destination);
+      layer(true, "lowpass", 500, 0.55);    // low rumble on the glass
+      layer(false, "bandpass", 2600, 0.07); // the hiss of the rain
+      layer(false, "highpass", 7000, 0.015);
+    }
+    function update() {
+      const audible = wanted && !body.classList.contains("no-rain") && !document.hidden;
+      if (audible && !ctx) build();
+      if (!ctx) return;
+      if (audible) ctx.resume();
+      master.gain.setTargetAtTime(audible ? 0.6 : 0, ctx.currentTime, 0.5);
+    }
+    btn.addEventListener("click", () => {
+      wanted = !wanted;
+      btn.setAttribute("aria-pressed", String(wanted));
+      $(".state", btn).textContent = wanted ? "on" : "off";
+      update();
+    });
+    document.addEventListener("rainchange", update);
+    document.addEventListener("visibilitychange", update);
   }
 
   /* ---------- live Seattle time on the card and the desk clock ---------- */
@@ -315,6 +367,7 @@ const CONFIG = {
   setupCopy();
   setupBoard();
   startClock();
+  setupSound();
   centerScene();
   boot();
   // label/ring placement depends on text metrics, so wait for fonts
