@@ -399,7 +399,7 @@ a.is-placeholder { opacity: .55; text-decoration-style: dashed; cursor: not-allo
 /* ---------- Touch: show labels so people know what's clickable ---------- */
 @media (hover: none) {
   .hs-label { opacity: .92; transform: none; font-size: 24px; }
-  .hs-label[data-for="hs-github"] { display: none; }
+  .hs-label[data-for="hs-github"], .hover-hint { display: none; }
 }
 
 /* ---------- Mobile / narrow ---------- */
