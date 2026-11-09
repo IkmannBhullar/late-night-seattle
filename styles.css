@@ -240,6 +240,24 @@ a.is-placeholder { opacity: .55; text-decoration-style: dashed; cursor: not-allo
 .links { display: flex; flex-wrap: wrap; gap: 18px; margin: 0 !important; }
 .links a { font-weight: 700; }
 
+/* 30-second version */
+.tldr-status {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(110, 139, 106, .16); border: 1px solid rgba(110, 139, 106, .55);
+  padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: 14.5px;
+}
+.dot { flex: none; width: 10px; height: 10px; border-radius: 50%; background: #8fbf89; animation: pulse 2s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(143, 191, 137, .6); } 70%, 100% { box-shadow: 0 0 0 10px rgba(143, 191, 137, 0); } }
+.facts.tldr { margin-top: 1em; }
+.tldr-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px !important; }
+.btn { display: inline-block; padding: 9px 18px; border-radius: 999px; background: var(--amber); color: var(--slate); font-weight: 700; text-decoration: none; border: 1.5px solid var(--amber); }
+.btn:hover { background: #f7c97f; }
+.btn.ghost { background: transparent; color: var(--text); border-color: rgba(233, 228, 218, .35); }
+.btn.ghost:hover { border-color: var(--amber); color: var(--amber); }
+.tldr-more { color: var(--muted); font-size: 14px; margin-top: 18px !important; }
+.t-quick { margin-top: .7em !important; }
+.t-quick a { color: #8a3f1c; font-weight: 700; text-underline-offset: 2px; }
+
 /* about */
 .facts { margin: 1.6em 0 0; border-top: 1.5px dashed rgba(233, 228, 218, .2); }
 .facts div { display: grid; grid-template-columns: 7.5em 1fr; gap: 12px; padding: 10px 0; border-bottom: 1.5px dashed rgba(233, 228, 218, .2); }
