@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Courier+Prime:wght@400;700&family=Kalam:wght@400;700&family=Young+Serif&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <noscript><style>.panel-root{position:static;visibility:visible}.panel-root .backdrop,.panel-close{display:none}.panel{position:static;transform:none;width:auto;height:auto;-webkit-mask:none;mask:none}.sheet[hidden]{display:block}</style></noscript>
+  <noscript><style>.panel-root{position:static;visibility:visible}.panel-root .backdrop,.panel-close{display:none}.panel{position:static;transform:none;width:auto;height:auto;-webkit-mask:none;mask:none}.sheet[hidden]{display:block!important}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#menu">Skip to the plain-text menu</a>
@@ -557,7 +557,7 @@
         <li><a href="#offclock" data-open="offclock"><span class="m-name">Off the clock</span><span class="m-dots" aria-hidden="true"></span><span class="m-obj">the gym bag</span></a></li>
         <li><a href="#contact" data-open="contact"><span class="m-name">Contact</span><span class="m-dots" aria-hidden="true"></span><span class="m-obj">the letters</span></a></li>
         <li><a data-link="github"><span class="m-name">GitHub ↗</span><span class="m-dots" aria-hidden="true"></span><span class="m-obj">the sticker</span></a></li>
-        <li><a data-link="resume"><span class="m-name">Résumé ↗</span><span class="m-dots" aria-hidden="true"></span><span class="m-obj">in the drawer</span></a></li>
+        <li data-ph-scope><a data-link="resume"><span class="m-name">Résumé ↗</span><span class="m-dots" aria-hidden="true"></span><span class="m-obj">in the drawer</span></a></li>
       </ol>
     </div>
   </main>
@@ -727,7 +727,7 @@
             <li><span class="pc-k">EMAIL</span><a data-link="email"><span data-text="email"></span></a></li>
             <li><span class="pc-k">LINKEDIN</span><a data-link="linkedin"><span data-text="linkedin" data-strip></span></a></li>
             <li><span class="pc-k">GITHUB</span><a data-link="github"><span data-text="github" data-strip></span></a></li>
-            <li><span class="pc-k">RÉSUMÉ</span><a data-link="resume">download ↗</a></li>
+            <li data-ph-scope><span class="pc-k">RÉSUMÉ</span><a data-link="resume">download ↗</a></li>
           </ul>
         </div>
         <p class="r-actions"><button type="button" class="copy-btn" id="copy-email">copy email</button><span class="copy-status" role="status" aria-live="polite"></span></p>

@@ -34,11 +34,8 @@ const CONFIG = {
       const key = a.dataset.link;
       let v = lookup(key);
       if (isPlaceholder(v)) {
-        a.setAttribute("href", "#");
-        a.classList.add("is-placeholder");
-        a.setAttribute("aria-disabled", "true");
-        a.setAttribute("title", `Link coming soon (set CONFIG.${key})`);
-        a.addEventListener("click", (e) => e.preventDefault());
+        // unfinished link: hide it (or its whole row) instead of showing a dead link
+        (a.closest("[data-ph-scope]") || a).hidden = true;
         return;
       }
       if (key === "email") v = `mailto:${v}`;
@@ -47,6 +44,9 @@ const CONFIG = {
         a.setAttribute("target", "_blank");
         a.setAttribute("rel", "noopener noreferrer");
       }
+    });
+    $$(".links").forEach((row) => {
+      if (!$$("a", row).some((x) => !x.hidden)) row.hidden = true;
     });
     $$("[data-text]").forEach((el) => {
       let v = lookup(el.dataset.text) || "";
