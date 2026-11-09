@@ -13,7 +13,6 @@ const CONFIG = {
     swapspot:     { demo: "[LINK]", code: "[LINK]" },
     litemusic:    { demo: "[LINK]", code: "[LINK]" },
     greenbite:    { demo: "[LINK]", code: "[LINK]" },
-    kbs:          { site: "[LINK]", code: "[LINK]" },
   },
 };
 
@@ -98,7 +97,6 @@ const CONFIG = {
 
     // rain: falling streaks + slow drips on the glass
     makeRain($("#rain-window"), { x: 400, y: 100, w: 520, h: 430, count: 85 });
-    makeRain($("#rain-door"), { x: 100, y: 190, w: 180, h: 230, count: 26 });
     const drops = $("#drops-window");
     for (let i = 0; i < 46; i++) {
       el("ellipse", { cx: (400 + rand() * 520).toFixed(1), cy: (110 + rand() * 410).toFixed(1), rx: (0.8 + rand() * 1.6).toFixed(1), ry: (1.2 + rand() * 2.2).toFixed(1), fill: "#d6e5f1", opacity: (0.12 + rand() * 0.2).toFixed(2) }, drops);

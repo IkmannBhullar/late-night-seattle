@@ -1,7 +1,7 @@
-# After hours at the chai counter
+# Late night in Seattle
 
-Personal portfolio of Ikmann Singh Bhullar — one illustrated, explorable café scene
-(rainy Seattle night, after closing). Every object opens a part of the story.
+Personal portfolio of Ikmann Singh Bhullar — one illustrated, explorable scene:
+his Seattle apartment late on a rainy night. Every object opens a part of the story.
 
 - Plain HTML / CSS / JS, scene drawn in inline SVG, no build step, no libraries.
 - All links live in the `CONFIG` object at the top of `main.js`.
