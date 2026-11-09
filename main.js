@@ -249,6 +249,21 @@ const CONFIG = {
     });
   }
 
+  /* ---------- skills: shake the cork board ---------- */
+  function setupBoard() {
+    const btn = $("#shake-board"), grid = $("#notes-grid");
+    if (!btn || !grid) return;
+    const tilt = (max) => `${(Math.random() * max * 2 - max).toFixed(1)}deg`;
+    btn.addEventListener("click", () => {
+      $$(".sn", grid).forEach((n) => n.style.setProperty("--r", tilt(3.5)));
+      $$(".chips li", grid).forEach((c) => c.style.setProperty("--cr", tilt(3)));
+      grid.classList.toggle("shaking", false);
+      void grid.offsetWidth; // restart the animation
+      grid.classList.add("shaking");
+    });
+    grid.addEventListener("animationend", () => grid.classList.toggle("shaking", false));
+  }
+
   /* ---------- copy email ---------- */
   function setupCopy() {
     const btn = $("#copy-email"), status = $(".copy-status");
@@ -284,6 +299,7 @@ const CONFIG = {
   setupSign();
   setupRain();
   setupCopy();
+  setupBoard();
   centerScene();
   boot();
   // label/ring placement depends on text metrics, so wait for fonts
